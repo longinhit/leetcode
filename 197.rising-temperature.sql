@@ -39,4 +39,8 @@
 --
 # Write your MySQL query statement below
 
+select A.Id  from Weather As A inner join (
+    select Id, DATE_ADD(RecordDate,INTERVAL 1 DAY) as RecordDate,Temperature from Weather  
+) as B on A.RecordDate = B.RecordDate and A.Temperature > B.Temperature
+
 
