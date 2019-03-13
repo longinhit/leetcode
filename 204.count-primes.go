@@ -21,7 +21,31 @@
  * Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
  *
  */
-func countPrimes(n int) int {
 
+// package main
+
+// import (
+// 	"math"
+// )
+
+// func main() {
+// 	fmt.Printf("%d\n", countPrimes(499979))
+// }
+
+func isPrime(number int) bool {
+	for i := 2; i <= int(math.Sqrt(float64(number))); i++ {
+		if number%i == 0 {
+			return false
+		}
+	}
+	return true
 }
-
+func countPrimes(n int) int {
+	count := 0
+	for i := 2; i < n; i++ {
+		if isPrime(i) {
+			count++
+		}
+	}
+	return count
+}
